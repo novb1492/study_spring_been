@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<context:property-placeholder location="classpath:test"/>
+
+<bean class="com.spring.quiz.PrintString" id="ps"/>
+<bean class="com.spring.quiz.PrintBean" id="pb">
+	<property name="ps" ref="ps"/>
+	<property name="string" value="${data}"/>
+</bean>
+
+	<bean class="com.spring.quiz.PrintClass" id="pc"/>
+	<bean class="com.spring.quiz.OperationClass" id="oc"/>
+	<bean class="com.spring.quiz.SaveClass" id="sc">
+		<property name="pc" ref="pc"/>
+		<property name="oc" ref="oc"/>
+		<property name="data1" value="${data1}"/>
+		<property name="data2" value="${data2}"/>
+		<property name="oper" value="${minus}"/>
+	</bean>
+
+</beans>

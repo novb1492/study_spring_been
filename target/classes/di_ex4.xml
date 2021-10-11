@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.spring.ex4.PrintClass" id="pc"></bean>
+	<bean class="com.spring.ex4.SaveClass" id="sc">
+		<property name="pc" ref="pc"></property>
+		<property name="names" >
+		 <list>
+		 	<value>국수의 신</value>
+		 	<value>라면의 신</value>
+		 </list>
+		</property>
+		<property name="infor">
+			<map>
+				<entry key="라면" value="3000"></entry>
+				<entry key="김밥" value="2000"></entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
